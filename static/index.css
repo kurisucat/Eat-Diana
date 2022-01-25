@@ -1,5 +1,5 @@
 body {
-    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    font-family: Helvetica, STHeiTi, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -90,10 +90,11 @@ body {
 
 
 #welcome {
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(0, 0, 0, 0.534);
     text-align: center;
     font-weight: bold;
     overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
 .welcome-bg {
@@ -109,13 +110,17 @@ body {
 
 #GameTimeLayer {
     top: 1em;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
     text-align: center;
-    color: rgb(233, 138, 131);
+    color: #E799B0;
     font-size: 4em;
-    text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff;
+    text-shadow: 0 0 50px #222;
     overflow: hidden;
+    background: rgba(0, 0, 0, 0.534);
+    backdrop-filter: blur(10px);
+    border-radius: 13px;
 }
 
 #GameLayerBG {
@@ -135,10 +140,11 @@ body {
 
 .block {
     position: absolute;
-    border-top: 1px solid #b8dfe6;
+    border-top: 1px solid #E799B0;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 
 .t1,
 .t2,
@@ -154,20 +160,20 @@ body {
 .tt3,
 .tt4,
 .tt5 {
-    background-size: auto 86%;
+    background-size: auto 100%;
     background-image: url(./image/AfterClicking.png);
 }
 
 .bl {
-    border-left: 1px solid #b8dfe6;
+    border-left: 1px solid #E799B0;
 }
 
 @-ms-keyframes flash {
     0% {
-        opacity: 1;
+        opacity: 0.8;
     }
     50% {
-        opacity: 0;
+        opacity: 0.3;
     }
     100% {
         opacity: 1;
@@ -176,10 +182,10 @@ body {
 
 @-webkit-keyframes flash {
     0% {
-        opacity: 1;
+        opacity: 0.8;
     }
     50% {
-        opacity: 0;
+        opacity: 0.3;
     }
     100% {
         opacity: 1;
@@ -192,7 +198,7 @@ body {
 }
 
 .bad {
-    background-color: rgb(211, 91, 91);
+    background-color: #E799B0;
     -webkit-animation: flash .2s 3;
     animation: flash .2s 3;
 }
@@ -204,10 +210,11 @@ body {
 }
 
 #GameScoreLayer {
-    padding-top: 2em;
+    padding-top: 0em;
     font-size: 2em;
     font-weight: bold;
-    color: #251c1c;
+    background: rgba(0, 0, 0, 0.534);
+    backdrop-filter: blur(10px);
     text-align: center;
     overflow: hidden;
 }
@@ -216,6 +223,10 @@ body {
     width: 1.7em;
     background-repeat: no-repeat;
     background-size: auto 100%;
+}
+
+body {
+    color: #fefefe;
 }
 
 
@@ -251,4 +262,11 @@ body {
     width: 100%;
     z-index: 10000;
     display: none;
+}
+
+.edit-by-kurisucat {
+    padding: 15%;
+    background-color: rgba(22, 22, 22, 0.4);
+    height: 100vh;
+    width: 100ew;
 }

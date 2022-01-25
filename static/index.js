@@ -107,15 +107,15 @@
 
     w.gameInit = function() {
         createjs.Sound.registerSound({
-            src: "./static/music/err.mp3",
+            src: "./static/sound/err.mp3",
             id: "err"
         });
         createjs.Sound.registerSound({
-            src: "./static/music/end.mp3",
+            src: "./static/sound/end.mp3",
             id: "end"
         });
         createjs.Sound.registerSound({
-            src: "./static/music/tap.mp3",
+            src: "./static/sound/tap.mp3",
             id: "tap"
         });
         gameRestart();
@@ -150,11 +150,7 @@
     }
 
 
-    w.encrypt = function(text) {
-        let encrypt = new JSEncrypt();
-        encrypt.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDTzGwX6FVKc7rDiyF3H+jKpBlRCV4jOiJ4JR33qZPVXx8ahW6brdBF9H1vdHBAyO6AeYBumKIyunXP9xzvs1qJdRNhNoVwHCwGDu7TA+U4M7G9FArDG0Y6k4LbS0Ks9zeRBMiWkW53yQlPshhtOxXCuZZOMLqk1vEvTCODYYqX5QIDAQAB");
-        return encrypt.encrypt(text);
-    }
+
 
     w.SubmitResults = function() {
         let system = "其他操作系统";
@@ -169,8 +165,6 @@
                 area = returnCitySN['cname']
             }
             let httpRequest = new XMLHttpRequest();
-            httpRequest.open('POST', './SubmitResults.php', true);
-            httpRequest.setRequestHeader("Content-type", "application/json");
             let name = document.getElementById("username").value;
             let message = document.getElementById("message").value;
             let test = "|_|";
@@ -311,7 +305,7 @@
         let c = document.getElementById(_gameBBList[_gameBBListIndex - 1].id).className.match(_ttreg)[1];
         l.className = l.className.replace(/bgc\d/, 'bgc' + c);
         document.getElementById('GameScoreLayer-text').innerHTML = shareText(_gameScore);
-        let score_text = '得分&nbsp;&nbsp;';
+        let score_text = '得分：';
         score_text += deviation_time < 23000 ? _gameScore : "<span style='color:red;'>" + _gameScore + "</span>";
         document.getElementById('GameScoreLayer-score').innerHTML = score_text;
         let bast = cookie('bast-score');
@@ -321,7 +315,7 @@
                 cookie('bast-score', bast, 100);
             }
         }
-        document.getElementById('GameScoreLayer-bast').innerHTML = '最佳&nbsp;&nbsp;' + bast;
+        document.getElementById('GameScoreLayer-bast').innerHTML = '最佳：' + bast;
         l.style.display = 'block';
     }
 
@@ -348,11 +342,12 @@
             return '倒计时多了' + ((deviation_time / 1000) - 20).toFixed(2) + "s";
         }
         SubmitResults();
-        if (score <= 49) return '试着好好练一下？';
-        if (score <= 99) return 'TCL';
-        if (score <= 149) return 'TQL';
-        if (score <= 199) return '您';
-        return '人？';
+        if (score <= 49) return '嘉心糖屁用没有';
+        if (score <= 70) return '嘉心糖太没用了';
+        if (score <= 110) return '秃批看似吧';
+        if (score <= 149) return 'TPK48';
+        if (score <= 199) return '两眼一黑了';
+        return '恭喜你获得我们的第一名<br>请将您的身份证、姓名、电话号码、住址<br>发送给 kurisu314@outlook.com，即可获得隐藏礼品';
     }
 
     w.toStr = function(obj) {
@@ -446,5 +441,6 @@
         gameTapEvent(fakeEvent);
     }
 
-    console.log("不修改，好嘛？乱传又有什么用呢？(ˉ▽ˉ；)...");
+    console.log("kurisu314@outlook.com");
+    console.log("原作者写的什么鸡巴东西我操真的傻逼 颜色配好一点行吗 既然是上线项目就不要写的那么傻逼 什么背景写 style 里面 非不写 css 里 我真的服了");
 }) (window);
